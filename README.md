@@ -1,37 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+The goal is to create a simplistic game of Memory, where we increase the difficulty per cleared level (Adding more cards to the game)
 
-## Getting Started
+Step 1: Create necessary data file, we will need a lot of cards which all of them uses the same "back-image", for example a "?" on the backside.
+It should have a front-image, a unique ID and a boolean "matched", so we can determine a match.
 
-First, run the development server:
+The match of 2 cards should be determined by comparing the pairId's of the cards.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Example of how a card should look:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+const cards = [
+{
+    id: 1,
+    pairId: "warrior1"
+    frontImage: "/images/warrior.png,
+    backImage: "images/hidden.png",
+    isMatched: false,
+},
+{
+    id: 2,
+    pairId: "warrior1"
+    frontImage: "/images/warrior.png,
+    backImage: "images/hidden.png",
+    isMatched: false,
+}
+]
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Step 2: Create a reusable card component that uses the data from cards.
+it should render front and backside
+should handle flipping logic
+accept props such as the card data.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Step 3: Create a "game container" which gets filled with play cards depending on "level", you will need to have a level variable that increases on each level completion.
 
-## Learn More
+Render the card components
+Contain a level variable
+Increase the level after all pairs are matched
+Reset the level if the player fails (i.e. runs out of attempts)
+You may choose whether a failed level allows retries or resets to level 0.
 
-To learn more about Next.js, take a look at the following resources:
+Step 4: Create function to be able to start a game.
+This function should make the "gameboard" appear, and fill with cards. Perhaps starting with 6 cards, and for each level increase you add 2?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Step 5: Make sure cards are put into a new array which has been randomly sorted.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Step 6: Make a function that compares the 2 cards values "pairId", and if x.pairId === y.pairId, then make cards unclickable and make sure they dont turn back again.
 
-## Deploy on Vercel
+Step 7: Add a counter for remaining attempts, add a timer (the player should be stressed out of his mind 😈)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# spa-docker
+//Written by yours truly, mr Alexander Hallgren
