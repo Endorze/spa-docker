@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+:root {
+    --iceBlue: #AEE4FF;
+    --HeavenlyBlue: #5BC0FF;
+    --SnowWhite: #FFFFFF;
+
+    --NeonMagenta: #FF4DFF;
+    --ColdCyan: #225B7C;
+
+    --DarkBlue: #0A2A4D;
+    --LightBlue: #225B7C;
+    --WinterGold: #FFD93B;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.gradient-bg {
+  background: linear-gradient(to bottom, #AEE4FF, #5BC0FF);
+  height: 100vh;
+}
