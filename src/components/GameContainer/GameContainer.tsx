@@ -7,10 +7,14 @@ type CardState = "hidden" | "flipped" | "matched"
 
 let currentScore = 0;
 let maxTries = 7;
+let initialPairs = 2;
 
 // Gör dubbla kort för matchning och randomiserar deras position så att vi får "memory" spelet upplagt.
-const buildDeck = (cards: CardProps[]) => [...cards, ...cards]
-    .sort(() => Math.random() - 0.5);
+const buildDeck = (cards: CardProps[], pairsCount: number) => {
+  const subset = cards.slice(0, Math.min(pairsCount, cards.length));
+  return [...subset, ...subset].sort(() => Math.random() - 0.5);
+};
+
 
 const GameContainer = () => {
     const [deck, setDeck] = useState<CardProps[]>([]);
@@ -21,8 +25,8 @@ const GameContainer = () => {
 
     //Återställer och randomiserar ett nytt spelbräde vid vinst
     const resetBoard = () => {
-        const newDeck = buildDeck(baseCards)
-
+        
+        const newDeck = buildDeck(baseCards, initialPairs)
         setDeck(newDeck)
         setCardStateArray([...new Array(newDeck.length)].map(_ => "hidden"))
     }
@@ -38,6 +42,12 @@ const GameContainer = () => {
         }
     }, [hasWon])
 
+
+    //Initiates the first game;
+
+    const increaseLevel = () => {
+        initialPairs++
+    }
 
     //Hanterar kortens "states", antingen är kortet hidden (inte hänt något) eller så är det flippat och väntar på matchning, eller så är det matchat.
     const handleCardClick = (cardIndex: number) => {
