@@ -1,0 +1,10 @@
+.reusableTitle {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--DarkBlue);
+    text-shadow:
+        1px 1px 2px rgb(255, 255, 255),
+        -1px -1px 2px rgb(255, 255, 255),
+        1px -1px 2px rgb(255, 255, 255),
+        -1px 1px 2px rgb(255, 255, 255);
+}

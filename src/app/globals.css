@@ -21,3 +21,10 @@
   background: linear-gradient(to bottom, #AEE4FF, #5BC0FF);
   height: 100vh;
 }
+
+.container {
+    max-width: 1200px;
+    width: 1200px;
+    margin: auto;
+    padding: 0;
+}
