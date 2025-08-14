@@ -4,12 +4,17 @@ import { cards as baseCards, CardProps } from "@/data/cards";
 import Card from "../Card/Card";
 import { ReusableH2 } from "../ReusableH2/ReusableH2";
 import styles from "./GameContainer.module.css"
+import { ScoreCounter } from "../ScoreCounter/ScoreCounter";
+import { H1Title } from "../H1Title/H1Title";
+import { snowflakeCursor } from 'cursor-effects';
+
 
 type CardState = "hidden" | "flipped" | "matched"
 
 let currentScore = 0;
 let maxTries = 7;
 let initialPairs = 2;
+let currentLevel = 1;
 
 // Gör dubbla kort för matchning och randomiserar deras position så att vi får "memory" spelet upplagt.
 const buildDeck = (cards: CardProps[], pairsCount: number) => {
@@ -48,11 +53,15 @@ const GameContainer = () => {
 
     const increaseLevel = () => {
         initialPairs++
+        currentLevel++
     }
 
     //Hanterar kortens "states", antingen är kortet hidden (inte hänt något) eller så är det flippat och väntar på matchning, eller så är det matchat.
     const handleCardClick = (cardIndex: number) => {
 
+        if (maxTries <= 0) {
+            return;
+        }
         if (blockInput) {
             return;
         }
@@ -88,7 +97,7 @@ const GameContainer = () => {
             console.log({ card, otherCard })
 
             if (otherCard.pairId == card.pairId) {
-                currentScore++
+                currentScore = (currentScore + (currentScore + 1 * 2))
                 setCardStateArray((previousState) => {
                     const newState = [...previousState]
                     newState[cardIndex] = "matched"
@@ -119,6 +128,9 @@ const GameContainer = () => {
 
                     setBlockInput(false)
                     maxTries--
+                    if (maxTries <= 0) {
+                        resetBoard();
+                    }
                 }, 1000)
             }
         }
@@ -128,29 +140,34 @@ const GameContainer = () => {
     console.log("State", cardStateArray)
 
     return (
-        <div className="relative w-content min-h-screen flex justify-center items-center">
-            <span className="absolute z-0 w-[800px] h-[300px] bg-[#5BC0FF] opacity-[0.9]"></span>
-            <div className="flex flex-col w-[800px] min-h-[600px] bg-gradient-to-b from-[#AEE4FF] to-[#5BC0FF] p-6 rounded-2xl">
-                <div className="pb-6">
-                    <ReusableH2 text="Memory" />
-                    <div className="flex justify-between">
-                        <p className={styles.gameContainerParagraph}>Score: {currentScore}</p>
-                        <p className={styles.gameContainerParagraph}>Attempts: {maxTries}</p>
+        <>
+        <section className="flex flex-col pt-32">            
+            <H1Title />
+            <div className="relative w-content flex justify-center items-center">
+                <ScoreCounter score={currentScore} />
+                <div className="flex flex-col w-[800px] min-h-[600px] bg-gradient-to-b from-[#AEE4FF] to-[#5BC0FF] p-6 rounded-2xl">
+                    <div className="pb-6">
+                        <div className="flex justify-between items-center">
+                            <ReusableH2 text="Memory" />
+                            <p className={styles.gameContainerParagraph}>Attempts <span className="bg-white py-3 px-5 rounded-xl">{maxTries}</span></p>
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap h-auto max-w-auto gap-6 justify-center" >
+                        {deck.map((card, index) => (
+                            <Card
+                                key={index}
+                                {...card}
+                                isFlipped={cardStateArray[index] == "flipped" || cardStateArray[index] == "matched"}
+                                onClick={() => handleCardClick(index)}
+                                disabled={false}
+                            />
+                        ))}
                     </div>
                 </div>
-                <div className="flex flex-wrap h-auto max-w-auto gap-6 justify-center" >
-                    {deck.map((card, index) => (
-                        <Card
-                            key={index}
-                            {...card}
-                            isFlipped={cardStateArray[index] == "flipped" || cardStateArray[index] == "matched"}
-                            onClick={() => handleCardClick(index)}
-                            disabled={false}
-                        />
-                    ))}
-                </div>
+                 <ScoreCounter score={currentLevel} text="Level "/>
             </div>
-        </div>
+        </section>
+        </>
     );
 };
 

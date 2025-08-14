@@ -9,14 +9,12 @@ Example of how a card should look:
 
 const cards = [
 {
-    id: 1,
     pairId: "warrior1"
     frontImage: "/images/warrior.png,
     backImage: "images/hidden.png",
     isMatched: false,
 },
 {
-    id: 2,
     pairId: "warrior1"
     frontImage: "/images/warrior.png,
     backImage: "images/hidden.png",
@@ -26,8 +24,8 @@ const cards = [
 
 Step 2: Create a reusable card component that uses the data from cards.
 it should render front and backside
-should handle flipping logic
-accept props such as the card data.
+flipping logic (optional)
+accept props from card data.
 
 Step 3: Create a "game container" which gets filled with play cards depending on "level", you will need to have a level variable that increases on each level completion.
 
@@ -37,8 +35,8 @@ Increase the level after all pairs are matched
 Reset the level if the player fails (i.e. runs out of attempts)
 You may choose whether a failed level allows retries or resets to level 0.
 
-Step 4: Create function to be able to start a game.
-This function should make the "gameboard" appear, and fill with cards. Perhaps starting with 6 cards, and for each level increase you add 2?
+Step 4: Create function that starts a game.
+This function should fill the "gameboard" with cards. Perhaps starting with 4 cards, and for each level increase you add 2?
 
 Step 5: Make sure cards are put into a new array which has been randomly sorted.
 

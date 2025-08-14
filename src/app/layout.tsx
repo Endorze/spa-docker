@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
+import SnowCursor from "@/components/SnowCursor/SnowCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0A2A4D]`}
       >
+        <SnowCursor />
         <LoadingScreen>
           <Header />
           {children}
