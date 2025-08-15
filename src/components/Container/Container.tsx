@@ -1,10 +1,10 @@
 import { ReactNode, HTMLAttributes } from "react";
 
-type Props = {
+export type ContainerProps = {
     children: ReactNode,
 }
 
-const Container = ({ children } : Props) => {
+const Container = ({ children } : ContainerProps) => {
     return (
     <div className="w-[1220px] flex justify-center">
         {children}

@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@radix-ui/react-progress": "^1.1.7",
@@ -24,18 +26,22 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20.19.9",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "dotenv": "^17.2.1",
     "eslint": "^9.32.0",
     "express": "^5.1.0",
+    "identity-obj-proxy": "^3.0.0",
     "install": "^0.13.0",
+    "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.5",
     "nodemon": "^3.1.10",
     "npm": "^11.5.2",
     "prettier": "^3.6.2",
     "tailwindcss": "^4",
+    "ts-jest": "^29.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   }

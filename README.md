@@ -13,36 +13,64 @@ const cards = [
     frontImage: "/images/warrior.png,
     backImage: "images/hidden.png",
     isMatched: false,
+    alt: "Warrior Card"
 },
 {
-    pairId: "warrior1"
-    frontImage: "/images/warrior.png,
+    pairId: "wizard1"
+    frontImage: "/images/wizard.png,
     backImage: "images/hidden.png",
     isMatched: false,
+    alt: "Wizard Card"
 }
 ]
 
-Step 2: Create a reusable card component that uses the data from cards.
-it should render front and backside
-flipping logic (optional)
-accept props from card data.
+![Alt-text](./public/cardexample.png)
+Step 2: Create a reusable card component that accept props from card data.
+it should render front and backside images
+flipping logic (optional), should show the back if not flipped, or show the front if flipped or matched.
+Calls an onclick callback when clicked
+Should be able to be disabled (so you can't tap the same card twice)
+should include alt text for accessabii.lty
 
-Step 3: Create a "game container" which gets filled with play cards depending on "level", you will need to have a level variable that increases on each level completion.
+![Alt-text](./public/gamecontainer.png)
+Step 3: Create a "game container"
+Should be filled with different amount of cards depending on "level".
 
-Render the card components
-Contain a level variable
-Increase the level after all pairs are matched
-Reset the level if the player fails (i.e. runs out of attempts)
-You may choose whether a failed level allows retries or resets to level 0.
+Should keep track of:
+Current score, Max attempts remaining, Current level, Deck (array of cards for this round), State of each card (hidden, flipped, or matched)
+useState required, no fuzzy business with "let score = score + 1".
+
+![alt text](image.png)
+![alt text](image-1.png)
+Logic:
+Increase level after all pairs are matched
+Reset score, level, and attempts when the player runs out of attempts.
+Allow “Play Again” to restart the game on loss.
+
+Renders:
+Title (H1Title)
+Title (ReusableH2) - components are always nice if its reusable ;D
+Current score (ScoreCounter)
+Current level (ScoreCounter with text "Level")
+Remaining attempts
+Container with flex/grid which holds the cards (flex-wrap could be nice if not grid)
 
 Step 4: Create function that starts a game.
-This function should fill the "gameboard" with cards. Perhaps starting with 4 cards, and for each level increase you add 2?
+Either the game starts once rendered or you create a play button, should have same functionality as the play again button, where we reset the gamestate from scratch.
+First level fills the playarea with 2 pairs of cards (4 cards), and each level increases it by 1 pair.
 
-Step 5: Make sure cards are put into a new array which has been randomly sorted.
+Step 5: Use a shuffle algorithm to randomize the card deck to ensure an unique gameplay each time.
 
-Step 6: Make a function that compares the 2 cards values "pairId", and if x.pairId === y.pairId, then make cards unclickable and make sure they dont turn back again.
+Step 6:
+On first click of a card you flip it/reveal it, on second click of another card you compare if x.pairId === y.pairId, and if so you increase score by 2, the cards remain visible, attemps are not reduced on correct guess.
+If not correct the cards turn back to hidden after a delay, attempts get reduced by 1.
 
-Step 7: Add a counter for remaining attempts, add a timer (the player should be stressed out of his mind 😈)
+Only 2 cards can be clicked at once, block input on other cards when 2 are selected.
+
+Step 7: Win/Loss conditions.
+Win: All cards have been matched, this increases the lvl, adds a pair and reshuffles for a new deck each time.
+Loss: Attempts reach 0, this should display a "play again button", which resets all values. Level 1, score 0, attempts 10, deck with 2 pairs.
+![alt text](image-2.png)
 
 
 //Written by yours truly, mr Alexander Hallgren
