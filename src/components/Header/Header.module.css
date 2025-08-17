@@ -211,10 +211,6 @@
   background: rgba(255,255,255,0.14);
 }
 
-:global(html) {
-  scroll-behavior: smooth;
-}
-
 @keyframes scrollLeft {
   0% {
     transform: translateX(0);

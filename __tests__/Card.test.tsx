@@ -7,7 +7,6 @@ const baseProps: CardProps = {
   pairId: "warrior1",
   frontImage: "/images/warrior.png",
   backImage: "/images/unknown.png",
-  isMatched: false,
   alt: "Warrior Card",
 };
 

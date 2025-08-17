@@ -12,14 +12,12 @@ const cards = [
     pairId: "warrior1"
     frontImage: "/images/warrior.png,
     backImage: "images/hidden.png",
-    isMatched: false,
     alt: "Warrior Card"
 },
 {
     pairId: "wizard1"
     frontImage: "/images/wizard.png,
     backImage: "images/hidden.png",
-    isMatched: false,
     alt: "Wizard Card"
 }
 ]

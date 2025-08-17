@@ -1,0 +1,238 @@
+
+> my-app@0.1.0 test
+> jest
+
+FAIL __tests__/GameContainer.test.tsx
+  ● Console
+
+    console.log
+      Before all tests
+
+      at __tests__/GameContainer.test.tsx:56:13
+
+    console.log
+      After level increase
+
+      at Object.<anonymous> (__tests__/GameContainer.test.tsx:175:17)
+
+  ● GameContainer Integration Tests › winning increases level and adds more pairs
+
+    TestingLibraryElementError: Unable to find an element with the text: 2. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<section[39m
+          [33mclass[39m=[32m"flex flex-col pt-32"[39m
+        [36m>[39m
+          [36m<h1[39m
+            [33mclass[39m=[32m"text-white text-[5rem] text-center py-8"[39m
+          [36m>[39m
+            [0mEndorze Games Presents[0m
+          [36m</h1>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"relative w-fit flex justify-center items-center"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"min-h-[100px] min-w-[200px] bg-white flex justify-center items-center"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex text-center flex-col"[39m
+              [36m>[39m
+                [36m<h2[39m
+                  [33mclass[39m=[32m"text"[39m
+                [36m/>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"score"[39m
+                [36m>[39m
+                  [0m0[0m
+                [36m</p>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex flex-col w-[800px] min-h-[600px] bg-gradient-to-b from-[#AEE4FF] to-[#5BC0FF] p-6 rounded-2xl"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"pb-6"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex justify-between items-center"[39m
+                [36m>[39m
+                  [36m<h2[39m
+                    [33mclass[39m=[32m"reusableTitle"[39m
+                  [36m>[39m
+                    [0mMemory[0m
+                  [36m</h2>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"gameContainerParagraph"[39m
+                  [36m>[39m
+                    [0mAttempts[0m
+                    [0m [0m
+                    [36m<span[39m
+                      [33mclass[39m=[32m"bg-white py-3 px-5 rounded-xl"[39m
+                    [36m>[39m
+                      [0m10[0m
+                    [36m</span>[39m
+                  [36m</p>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-wrap h-auto max-w-auto gap-6 justify-center"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33maria-pressed[39m=[32m"false"[39m
+                  [33mclass[39m=[32m"w-[100px] h-[150px] cursor-pointer"[39m
+                  [33mstyle[39m=[32m"perspective: 1000px;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative w-full h-full"[39m
+                    [33mstyle[39m=[32m"transform-style: preserve-3d;"[39m
+                  [36m>[39m
+                    [36m<img[39m
+                      [33malt[39m=[32m"Wizard Card"[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"absolute inset-0 w-full h-full object-cover rounded-lg"[39m
+                      [33mdata-testid[39m=[32m"card-front"[39m
+                      [33msrc[39m=[32m"/images/wizard.png"[39m
+                      [33mstyle[39m=[32m"transform: rotateY(180deg); backface-visibility: hidden;"[39m
+                    [36m/>[39m
+                    [36m<img[39m
+                      [33malt[39m=[32m"Wizard Card"[39m
+                      [33maria-hidden[39m=[32m"false"[39m
+                      [33mclass[39m=[32m"absolute inset-0 w-full h-full object-cover rounded-lg"[39m
+                      [33mdata-testid[39m=[32m"card-back"[39m
+                      [33msrc[39m=[32m"/images/unknown.png"[39m
+                      [33mstyle[39m=[32m"backface-visibility: hidden;"[39m
+                    [36m/>[39m
+                  [36m</div>[39m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33maria-pressed[39m=[32m"false"[39m
+                  [33mclass[39m=[32m"w-[100px] h-[150px] cursor-pointer"[39m
+                  [33mstyle[39m=[32m"perspective: 1000px;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative w-full h-full"[39m
+                    [33mstyle[39m=[32m"transform-style: preserve-3d;"[39m
+                  [36m>[39m
+                    [36m<img[39m
+                      [33malt[39m=[32m"Warrior Card"[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"absolute inset-0 w-full h-full object-cover rounded-lg"[39m
+                      [33mdata-testid[39m=[32m"card-front"[39m
+                      [33msrc[39m=[32m"/images/warrior.png"[39m
+                      [33mstyle[39m=[32m"transform: rotateY(180deg); backface-visibility: hidden;"[39m
+                    [36m/>[39m
+                    [36m<img[39m
+                      [33malt[39m=[32m"Warrior Card"[39m
+                      [33maria-hidden[39m=[32m"false"[39m
+                      [33mclass[39m=[32m"absolute inset-0 w-full h-full object-cover rounded-lg"[39m
+                      [33mdata-testid[39m=[32m"card-back"[39m
+                      [33msrc[39m=[32m"/images/unknown.png"[39m
+                      [33mstyle[39m=[32m"backface-visibility: hidden;"[39m
+                    [36m/>[39m
+                  [36m</div>[39m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33maria-pressed[39m=[32m"false"[39m
+                  [33mclass[39m=[32m"w-[100px] h-[150px] cursor-pointer"[39m
+                  [33mstyle[39m=[32m"perspective: 1000px;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative w-full h-full"[39m
+                    [33mstyle[39m=[32m"transform-style: preserve-3d;"[39m
+                  [36m>[39m
+                    [36m<img[39m
+                      [33malt[39m=[32m"Wizard Card"[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"absolute inset-0 w-full h-full object-cover rounded-lg"[39m
+                      [33mdata-testid[39m=[32m"card-front"[39m
+                      [33msrc[39m=[32m"/images/wizard.png"[39m
+                      [33mstyle[39m=[32m"transform: rotateY(180deg); backface-visibility: hidden;"[39m
+                    [36m/>[39m
+                    [36m<img[39m
+                      [33malt[39m=[32m"Wizard Card"[39m
+                      [33maria-hidden[39m=[32m"false"[39m
+                      [33mclass[39m=[32m"absolute inset-0 w-full h-full object-cover rounded-lg"[39m
+                      [33mdata-testid[39m=[32m"card-back"[39m
+                      [33msrc[39m=[32m"/images/unknown.png"[39m
+                      [33mstyle[39m=[32m"backface-visibility: hidden;"[39m
+                    [36m/>[39m
+                  [36m</div>[39m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33maria-pressed[39m=[32m"false"[39m
+                  [33mclass[39m=[32m"w-[100px] h-[150px] cursor-pointer"[39m
+                  [33mstyle[39m=[32m"perspective: 1000px;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative w-full h-full"[39m
+                    [33mstyle[39m=[32m"transform-style: preserve-3d;"[39m
+                  [36m>[39m
+                    [36m<img[39m
+                      [33malt[39m=[32m"Warrior Card"[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"absolute inset-0 w-full h-full object-cover rounded-lg"[39m
+                      [33mdata-testid[39m=[32m"card-front"[39m
+                      [33msrc[39m=[32m"/images/warrior.png"[39m
+                      [33mstyle[39m=[32m"transform: rotateY(180deg); backface-visibility: hidden;"[39m
+                    [36m/>[39m
+                    [36m<img[39m
+                      [33malt[39m=[32m"Warrior Card"[39m
+                      [33maria-hidden[39m=[32m"false"[39m
+                      [33mclass[39m=[32m"absolute inset-0 w-full h-full object-cover rounded-lg"[39m
+                      [33mdata-testid[39m=[32m"card-back"[39m
+                      [33msrc[39m=[32m"/images/unknown.png"[39m
+                      [33mstyle[39m=[32m"backface-visibility: hidden;"[39m
+                    [36m/>[39m
+                  [36m</div>[39m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"min-h-[100px] min-w-[200px] bg-white flex justify-center items-center"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex text-center flex-col"[39m
+              [36m>[39m
+                [36m<h2[39m
+                  [33mclass[39m=[32m"text"[39m
+                [36m>[39m
+                  [0mLevel [0m
+                [36m</h2>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"score"[39m
+                [36m>[39m
+                  [0m1[0m
+                [36m</p>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</section>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+    [0m [90m 154 |[39m         console[33m.[39mlog([32m"After level increase"[39m)
+     [90m 155 |[39m
+    [31m[1m>[22m[39m[90m 156 |[39m         expect(screen[33m.[39mgetByText([32m"2"[39m))[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m     |[39m                       [31m[1m^[22m[39m
+     [90m 157 |[39m     })[33m;[39m
+     [90m 158 |[39m })[33m;[39m
+     [90m 159 |[39m[0m
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:37:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (__tests__/GameContainer.test.tsx:156:23)
+
+PASS __tests__/Card.test.tsx
+PASS __tests__/ReusableH2.test.tsx
+PASS __tests__/ScoreCounter.test.tsx
+PASS __tests__/Container.test.tsx
+
+Test Suites: 1 failed, 4 passed, 5 total
+Tests:       1 failed, 13 passed, 14 total
+Snapshots:   0 total
+Time:        1.228 s
+Ran all test suites.

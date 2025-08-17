@@ -1,25 +1,27 @@
 "use client";
 import { useEffect, useState } from "react";
 import { cards as baseCards, CardProps } from "@/data/cards";
-import Card from "../Card/Card";
-import { ReusableH2 } from "../ReusableH2/ReusableH2";
+import Card from "@/components/Card/Card";
+import { ReusableH2 } from "@/components/ReusableH2/ReusableH2";
 import styles from "./GameContainer.module.css";
-import { ScoreCounter } from "../ScoreCounter/ScoreCounter";
-import { H1Title } from "../H1Title/H1Title";
+import { ScoreCounter } from "@/components/ScoreCounter/ScoreCounter";
+import { H1Title } from "@/components/H1Title/H1Title";
 
 type CardState = "hidden" | "flipped" | "matched";
 
-const buildDeck = (cards: CardProps[], pairsCount: number) => {
-  const subset = cards.slice(0, Math.min(pairsCount, cards.length));
-  return [...subset, ...subset].sort(() => Math.random() - 0.5);
-};
+type GameContainerProps = {
+  buildDeck: (cards: CardProps[], pairsCount: number) => CardProps[]
+}
 
-const GameContainer = () => {
+const GameContainer = (props: GameContainerProps) => {
+
+  const { buildDeck } = props;
+
   const [maxTries, setMaxTries] = useState(10);
   const [score, setScore] = useState(0);
   const [initialPairs, setInitialPairs] = useState(2);
   const [currentLevel, setCurrentLevel] = useState(1);
-  const [gameOver, setGameOver] = useState(true);
+  const [gameOver, setGameOver] = useState(false);
 
   const [deck, setDeck] = useState<CardProps[]>([]);
   const [cardStateArray, setCardStateArray] = useState<CardState[]>([]);
@@ -104,8 +106,8 @@ const GameContainer = () => {
     }
   };
 
-  console.log("Deck", deck);
-  console.log("State", cardStateArray);
+  // console.log("Deck", deck);
+  // console.log("State", cardStateArray);
 
   return (
     <>
